@@ -1,9 +1,9 @@
 #### mginx plugin for nginx 1.0.x
 
-This is an example plugin which use GT.M Call-In interface to access GT.M database.
+This is an example plugin which use GT.M Call-In interface to access GT.M database.  
 It calls setData function and setData increments ^DATA(#input id#) and ^DATA#input id#(#input id#) global variables.
 
-If you would like to test this plugin you need GT.M.
+If you would like to test this plugin you need GT.M.  
 You can download source and binaries from: http://sourceforge.net/projects/fis-gtm/files/
 
 I used V5.4-002A deb package. After installing I had to modify permissions to access GT.M files with a regular user account.
@@ -12,17 +12,17 @@ I used V5.4-002A deb package. After installing I had to modify permissions to ac
 
 Download and extract nginx source into the root directory of this repo. If you would like to place elsewhere you need to modify module config file.
 
-Run configure and make. E.g.:
+Run configure and make. E.g.:  
 ./configure --add-module=../mod_mginx/ --without-http_rewrite_module --prefix=. --http-log-path=/tmp/mginx-test --error-log-path=/tmp/mginx-test/error.log --pid-path=/tmp/mginx-test --without-http_fastcgi_module --without-http_scgi_module --without-http_uwsgi_module --without-http_proxy_module && make
 
 #### Test mgnix plugin
 
-Change to test directory and copy nginx binary into it.
-Create a GT.M database: ../gt.m/create_db.sh
-Check databate: ../gt.m/show_data.sh (You will need to get %GTM-E-GVUNDEF error, because there is no data in database.)
-Set gtmroutines environment variable: export gtmroutines='../gt.m /opt/lsb-gtm/V5.4-000_x86_64'
-Run nginx: LD_LIBRARY_PATH=/opt/lsb-gtm/V5.4-000_x86_64 ./nginx  -c nginx.conf
-Check url: e.g. wget -O - "http://localhost:8080/mginx?4826" (you can change id after question mark)
+Change to test directory and copy nginx binary into it.  
+Create a GT.M database: ../gt.m/create_db.sh  
+Check databate: ../gt.m/show_data.sh (You will need to get %GTM-E-GVUNDEF error, because there is no data in database.)  
+Set gtmroutines environment variable: export gtmroutines='../gt.m /opt/lsb-gtm/V5.4-000_x86_64'  
+Run nginx: LD_LIBRARY_PATH=/opt/lsb-gtm/V5.4-000_x86_64 ./nginx  -c nginx.conf  
+Check url: e.g. wget -O - "http://localhost:8080/mginx?4826" (you can change id after question mark)  
 
-If HTTP status code is 200 than values incremented, status code is 500 if values were not incremented successfully.
+If HTTP status code is 200 than values were incremented, status code is 500 if values were not incremented successfully. 
 
