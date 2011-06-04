@@ -1,0 +1,2 @@
+init : void init^tst()
+setData : void setData^tst(I:gtm_long_t)

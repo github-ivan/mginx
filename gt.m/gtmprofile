@@ -1,0 +1,6 @@
+gtm_dist=/opt/lsb-gtm/V5.4-000_x86_64
+gtm_exe=/opt/lsb-gtm/V5.4-000_x86_64
+gtmroutines="/opt/lsb-gtm/V5.4-000_x86_64" 
+gtmgbldir=../gt.m/mumps.gld
+gtmdir=../gt.m
+echo gtmgbldir = $gtmgbldir
